@@ -2,6 +2,7 @@
   "name": "news",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://alecholmez.github.io/newsie",
   "dependencies": {
     "axios": "^0.17.1",
     "jquery": "^3.3.1",

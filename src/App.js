@@ -29,12 +29,16 @@ class App extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    axios.get(`https://newsapi.org/v2/everything?q=${this.state.search}&language=en&pageSize=100&sortBy=publishedAt&apiKey=${config.apiKey}`).then(response => {
-      console.log(response.data);
-      this.setState({
-        articles: response.data
+    if (this.state.search != '') {
+      axios.get(`https://newsapi.org/v2/everything?q=${this.state.search}&language=en&pageSize=100&sortBy=publishedAt&apiKey=${config.apiKey}`).then(response => {
+        console.log(response.data);
+        this.setState({
+          articles: response.data
+        });
       });
-    });
+    } else {
+      alert('Search can not be blank!');
+    }
   }
 
   componentWillMount() {

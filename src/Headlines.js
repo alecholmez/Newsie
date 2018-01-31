@@ -16,7 +16,7 @@ class Headlines extends Component {
                             <li key={article.title}>
                                 <div className="uk-card uk-card-secondary">
                                     <div className="uk-card-media-top">
-                                        <img src={article.urlToImage} alt="" />
+                                        <img src={article.urlToImage} className="uk-card-media-top-img" alt="" />
                                         </div>
                                     <div className="uk-card-body">
                                         <h3 className="uk-card-title">{article.title}</h3>

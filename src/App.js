@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import config from './config';
 import Headlines from './Headlines';
+import Nav from './Nav';
 import List from './List';
 
 class App extends Component {
@@ -11,8 +12,29 @@ class App extends Component {
 
     this.state = {
       headlines: [],
-      articles: {}
+      articles: {},
+      search: ''
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+  }
+  
+  handleInput(e) {
+    this.setState({
+        search: e.target.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    axios.get(`https://newsapi.org/v2/everything?q=${this.state.search}&language=en&pageSize=100&sortBy=publishedAt&apiKey=${config.apiKey}`).then(response => {
+      console.log(response.data);
+      this.setState({
+        articles: response.data
+      });
+    });
   }
 
   componentWillMount() {
@@ -26,20 +48,23 @@ class App extends Component {
     axios.get(`https://newsapi.org/v2/everything?q=bitcoin&language=en&pageSize=100&sortBy=publishedAt&apiKey=${config.apiKey}`).then(response => {
       console.log(response.data);
       this.setState({
-        articles: response.data,
+        articles: response.data
       });
     });
   }
 
   render() {
     return (
-      <div className="uk-container">
-        <h1 className="uk-heading uk-heading-primary uk-heading-divider uk-margin-small-top">Newsie</h1>
+      <div>
+        <Nav handleSubmit={this.handleSubmit} handleInput={this.handleInput} />
 
-        <Headlines articles={this.state.headlines} />
+        <div className="uk-container">
+          
+          <Headlines articles={this.state.headlines} />
 
-        <List articles={this.state.articles.articles} />
-      </div >
+          <List articles={this.state.articles.articles} />
+        </div>
+      </div>
     );
   }
 }

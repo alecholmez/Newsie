@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import UIKit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 
-require('uikit/dist/css/uikit.min.css');
+import 'uikit/dist/css/uikit.min.css';
 
 
 UIKit.use(Icons);

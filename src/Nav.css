@@ -1,0 +1,12 @@
+.uk-logo {
+    font-family: 'Avenir Next', 'Avenir', 'Helvetica' !important;
+    font-weight: 700;
+}
+
+.uk-navbar-nav > li > a {
+    font-family: 'Avenir Next', 'Avenir', 'Helvetica' !important;
+}
+
+.uk-search-input {
+    font-family: 'Avenir Next', 'Avenir', 'Helvetica' !important;
+}

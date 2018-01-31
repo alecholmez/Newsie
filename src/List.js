@@ -13,13 +13,15 @@ class List extends Component {
                 {this.props.articles.map((article, i) => (
                     <li key={i}>
                         <article className="uk-article">
-                            <h2 className="uk-article-title">{article.title}</h2>
-                            <p className="uk-article-meta">Written by <a>{article.author}</a></p>
-                            <p>{article.description}</p>
+                            <div className="uk-padding">
+                                <h2 className="uk-article-title">{article.title}</h2>
+                                <p className="uk-article-meta">Written by <a>{article.author}</a></p>
+                                <p>{article.description}</p>
 
-                            <div className="uk-grid-small uk-child-width-auto" data-uk-grid>
-                                <div>
-                                    <a className="uk-button uk-button-text" href={article.url}>Read more</a>
+                                <div className="uk-grid-small uk-child-width-auto" data-uk-grid>
+                                    <div>
+                                        <a className="uk-button uk-button-text" href={article.url}>Read more</a>
+                                    </div>
                                 </div>
                             </div>
                         </article>

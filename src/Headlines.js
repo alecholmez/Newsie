@@ -17,7 +17,7 @@ class Headlines extends Component {
                                 <div className="uk-card uk-card-secondary">
                                     <div className="uk-card-media-top">
                                         <img src={article.urlToImage} alt="" />
-                                    </div>
+                                        </div>
                                     <div className="uk-card-body">
                                         <h3 className="uk-card-title">{article.title}</h3>
                                         <div className="uk-text-small uk-grid-divider uk-grid-collapse" data-uk-grid>
